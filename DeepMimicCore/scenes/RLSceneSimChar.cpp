@@ -73,6 +73,19 @@ void cRLSceneSimChar::SetAction(int agent_id, const Eigen::VectorXd& action)
 	ctrl->ApplyAction(action);
 }
 
+void cRLSceneSimChar::SetAction(int agent_id)
+{
+	const auto& ctrl = GetController(agent_id);
+	std::vector<double> action = std::vector<double>(ctrl->GetActionSize(), 0);
+	Eigen::VectorXd in_action;
+
+	int size = static_cast<int>(action.size());
+	in_action.resize(size);
+	std::memcpy(in_action.data(), action.data(), size * sizeof(double));
+
+	ctrl->ApplyAction(in_action);
+}
+
 eActionSpace cRLSceneSimChar::GetActionSpace(int agent_id) const
 {
 	const auto& ctrl = GetController(agent_id);

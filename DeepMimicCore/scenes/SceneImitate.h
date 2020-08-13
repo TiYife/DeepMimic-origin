@@ -14,6 +14,8 @@ public:
 	virtual void ParseArgs(const std::shared_ptr<cArgParser>& parser);
 	virtual void Init();
 
+	virtual void SetAction(int agent_id);
+
 	virtual const std::shared_ptr<cKinCharacter>& GetKinChar() const;
 	virtual void EnableRandRotReset(bool enable);
 	virtual bool EnabledRandRotReset() const;

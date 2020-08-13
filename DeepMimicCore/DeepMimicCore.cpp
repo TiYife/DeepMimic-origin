@@ -229,6 +229,16 @@ void cDeepMimicCore::SetAction(int agent_id, const std::vector<double>& action)
 	}
 }
 
+void cDeepMimicCore::SetAction(int agent_id)
+{
+	const auto& rl_scene = GetRLScene();
+	if (rl_scene != nullptr)
+	{
+		rl_scene->SetAction(agent_id);
+	}
+}
+
+
 void cDeepMimicCore::LogVal(int agent_id, double val)
 {
 	const auto& rl_scene = GetRLScene();

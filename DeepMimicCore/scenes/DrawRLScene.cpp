@@ -39,6 +39,11 @@ void cDrawRLScene::SetAction(int agent_id, const Eigen::VectorXd& action)
 	GetRLScene()->SetAction(agent_id, action);
 }
 
+void cDrawRLScene::SetAction(int agent_id)
+{
+	GetRLScene()->SetAction(agent_id);
+}
+
 eActionSpace cDrawRLScene::GetActionSpace(int agent_id) const
 {
 	return GetRLScene()->GetActionSpace(agent_id);

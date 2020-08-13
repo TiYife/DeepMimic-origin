@@ -15,6 +15,7 @@ public:
 	virtual void RecordState(int agent_id, Eigen::VectorXd& out_state) const;
 	virtual void RecordGoal(int agent_id, Eigen::VectorXd& out_goal) const;
 	virtual void SetAction(int agent_id, const Eigen::VectorXd& action);
+	virtual void SetAction(int agent_id);
 
 	virtual eActionSpace GetActionSpace(int agent_id) const;
 	virtual int GetStateSize(int agent_id) const;

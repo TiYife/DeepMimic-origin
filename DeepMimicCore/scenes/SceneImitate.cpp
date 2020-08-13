@@ -160,6 +160,13 @@ void cSceneImitate::Init()
 	InitJointWeights();
 }
 
+void cSceneImitate::SetAction(int agent_id)
+{
+	Eigen::VectorXd action = mKinChar->GetPose();
+	const auto& ctrl = GetController(agent_id);
+	ctrl->ApplyAction(action.segment(7, action.size() - 7));
+}
+
 double cSceneImitate::CalcReward(int agent_id) const
 {
 	const cSimCharacter* sim_char = GetAgentChar(agent_id);
